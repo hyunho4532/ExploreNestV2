@@ -5,12 +5,16 @@ import '../@api/response/ApiResponse'
 
 function ProjectWrite() {
 
-    const [languages, setLanguages] = useState<Language[]>([]);
+    const [languages, setLanguages] = useState([]);
+    const [languagesFromData, setLanguagesFromData] = useState('');
 
     useEffect(() => {
         axios.get('http://localhost:8080/fetchData')
             .then(response => {
-                setLanguages(response.data.language);
+                setLanguages(response.data);
+
+                console.log(response.data);
+
             })
             .catch(error => {
                 console.error(error);
@@ -21,11 +25,7 @@ function ProjectWrite() {
     return (
         <div>
             <h5>Languages:</h5>
-            <ul>
-                {languages.map(language => (
-                    <li key={language.id}>{language.title}</li>
-                ))}
-            </ul>
+            { languages.map((value, index) => <li key={index}>{value}</li>)}
         </div>
     );
 }
