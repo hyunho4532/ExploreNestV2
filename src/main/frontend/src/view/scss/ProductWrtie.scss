@@ -2,7 +2,16 @@
   transform: translate(-500px, -320px);
 }
 
-#product-recruitment-select {
-  width: 500px;
-  transform: translate(-446px, -310px);
+#product-recruitment-group {
+  display: flex;
+
+  #product-recruitment-select {
+    width: 500px;
+    transform: translate(-195px, -320px);
+  }
+
+  #product-count-select {
+    width: 500px;
+    transform: translate(-120px, -320px);
+  }
 }

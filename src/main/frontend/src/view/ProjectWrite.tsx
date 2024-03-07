@@ -4,6 +4,7 @@ import '../@model/Language'
 import '../@api/response/ApiResponse'
 import './scss/ProductWrtie.scss'
 import Select from "react-select";
+import {s} from "vite/dist/node/types.d-AKzkD8vd";
 
 function ProjectWrite() {
 
@@ -25,10 +26,7 @@ function ProjectWrite() {
     useEffect(() => {
         axios.get('http://localhost:8080/fetchData')
             .then(response => {
-                setLanguages(response.data);
-
-                console.log(response.data);
-
+                setLanguages(response.data.study);
             })
             .catch(error => {
                 console.error(error);
@@ -39,12 +37,23 @@ function ProjectWrite() {
     return (
         <div>
             <h2 id="product-recruitment-title">프로젝트 모집을 원하시나요? 😎😎</h2>
-            <Select
-                id="product-recruitment-select"
-                options={projectStatus}
-                onChange={setSelectOption}
-                placeholder={"프로젝트 진행 방식을 선택해주세요!"}
-            />
+
+            <div id="product-recruitment-group">
+
+                <Select
+                    id="product-recruitment-select"
+                    options={languages.map((value, index) => ({ value: value, label: value }))}
+                    onChange={setSelectOption}
+                    placeholder={"프로젝트 진행 방식을 선택해주세요!"}
+                />
+
+                <Select
+                    id="product-count-select"
+                    options={projectStatus}
+                    onChange={setSelectOption}
+                    placeholder={"프로젝트 모집 인원을 선택해주세요!"}
+                />
+            </div>
         </div>
     );
 }
