@@ -33,9 +33,11 @@ public class ApiController {
             JsonNode jsonNode = objectMapper.readTree(jsonResponse);
             JsonNode languageNode = jsonNode.path("data").path("language");
             JsonNode recruitmentNode = jsonNode.path("data").path("recruitment");
+            JsonNode processNode = jsonNode.path("data").path("projectProcess");
 
             List<String> projectList = new ArrayList<>();
             List<String> studyList = new ArrayList<>();
+            List<String> processList = new ArrayList<>();
 
             for (JsonNode lang : languageNode) {
                 String title = lang.get("title").asText();
@@ -49,8 +51,15 @@ public class ApiController {
                 studyList.add(type);
             }
 
+            for (JsonNode process : processNode) {
+                String status = process.get("status").asText();
+
+                processList.add(status);
+            }
+
             languageTitles.put("project", projectList);
             languageTitles.put("study", studyList);
+            languageTitles.put("process", processList);
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
