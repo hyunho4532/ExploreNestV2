@@ -4,13 +4,15 @@ import '../@model/Language'
 import '../@api/response/ApiResponse'
 import './scss/ProductWrtie.scss'
 import Select from "react-select";
-import {s} from "vite/dist/node/types.d-AKzkD8vd";
+import Calendar from "react-calendar";
+import {Button, DayPicker} from "react-day-picker";
+import {format} from "date-fns";
 
 function ProjectWrite() {
 
     const [languages, setLanguages] = useState([]);
     const [process, setProcess] = useState([]);
-
+    const [stack, setStack] = useState([]);
 
     const countStatus = []
     const periodStatus = []
@@ -31,6 +33,7 @@ function ProjectWrite() {
             .then(response => {
                 setLanguages(response.data.study);
                 setProcess(response.data.process);
+                setStack(response.data.stack);
 
             })
             .catch(error => {
@@ -40,7 +43,8 @@ function ProjectWrite() {
 
 
     return (
-        <div>
+        <div id="product-recruitment-main">
+
             <h2 id="product-recruitment-title-first">1. 프로젝트 어떤 식으로 진행 하나요? 😎😎</h2>
 
             <div id="product-recruitment-group-first">
@@ -83,11 +87,21 @@ function ProjectWrite() {
             <div id="product-recruitment-group-third">
                 <Select
                     id="product-stack-select"
-                    options={process.map((value, index) => ({ value: value, label :value }))}
+                    options={stack.map((value, index) => ({ value: value, label :value }))}
                     onChange={setSelectOption}
                     placeholder={"프로젝트 기술 스택을 선택해 주세요!"}
                 />
+
+                <button id="product-recruitment-button">
+                    마감 기간 선택하기
+                </button>
+
             </div>
+
+            <DayPicker
+                id="product-recruitment-datepicker"
+                mode="single"
+            />
         </div>
     );
 }

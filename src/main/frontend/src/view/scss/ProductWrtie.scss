@@ -1,26 +1,14 @@
-#product-recruitment-title-first {
-  transform: translate(-455px, -280px);
-}
-
-#product-recruitment-title-second {
-  transform: translate(-380px, -200px);
-}
-
-#product-recruitment-title-third {
-  transform: translate(-380px, -120px);
-}
-
 #product-recruitment-group-first {
   display: flex;
 
   #product-recruitment-select {
-    width: 500px;
-    transform: translate(-195px, -280px);
+    width: 400px;
+    margin-right: 20px;
   }
 
   #product-count-select {
-    width: 500px;
-    transform: translate(-120px, -280px);
+    width: 400px;
+    margin-left: 20px;
   }
 }
 
@@ -28,19 +16,50 @@
   display: flex;
 
   #product-process-select {
-    width: 500px;
-    transform: translate(-196px, -200px);
+    width: 400px;
+    margin-right: 20px;
   }
 
   #product-period-select {
-    width: 500px;
-    transform: translate(-120px, -200px);
+    width: 400px;
+    margin-left: 20px;
   }
 }
 
 #product-recruitment-group-third {
+  display: flex;
+
   #product-stack-select {
-    width: 500px;
-    transform: translate(-196px, -120px);
+    width: 400px;
+    margin-right: 20px;
   }
+
+  #product-recruitment-button {
+    width: 400px;
+    margin-left: 20px;
+  }
+}
+
+#product-recruitment-datepicker {
+  margin-top: 50px;
+  margin-left: 410px;
+}
+
+#product-recruitment-title-first {
+  text-align: left;
+}
+
+#product-recruitment-title-second {
+  text-align: left;
+  margin-top: 120px;
+}
+
+#product-recruitment-title-third {
+  text-align: left;
+  margin-top: 120px;
+}
+
+#product-recruitment-main {
+  scroll-behavior: smooth;
+  height: 100%;
 }

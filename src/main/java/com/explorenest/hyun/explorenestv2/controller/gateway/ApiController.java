@@ -57,7 +57,7 @@ public class ApiController {
                 processList.add(status);
             }
 
-            languageTitles.put("project", projectList);
+            languageTitles.put("stack", projectList);
             languageTitles.put("study", studyList);
             languageTitles.put("process", processList);
 
