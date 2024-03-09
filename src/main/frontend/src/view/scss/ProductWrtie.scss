@@ -1,0 +1,65 @@
+#product-recruitment-title-first {
+  top: 0;
+  left: 0;
+  text-align: left;
+}
+
+#product-recruitment-title-second {
+  top: 0;
+  left: 0;
+  text-align: left;
+  margin-top: 70px;
+}
+
+#product-recruitment-title-third {
+  top: 0;
+  left: 0;
+  text-align: left;
+  margin-top: 70px;
+}
+
+#product-recruitment-group-first {
+  display: flex;
+
+  #product-recruitment-select {
+    width: 400px;
+    margin-right: 16px;
+    text-align: start;
+  }
+
+  #product-count-select {
+    width: 400px;
+    margin-left: 16px;
+    text-align: start;
+  }
+}
+
+#product-recruitment-group-second {
+  display: flex;
+
+  #product-process-select {
+    width: 400px;
+    margin-right: 16px;
+    text-align: start;
+  }
+
+  #product-period-select {
+    width: 400px;
+    margin-left: 16px;
+    text-align: start;
+  }
+}
+
+#product-recruitment-group-third {
+  display: flex;
+
+  #product-stack-select {
+    width: 400px;
+    margin-right: 16px;
+    text-align: start;
+  }
+
+  #product-recruitment-button {
+    width: 400px;
+  }
+}
