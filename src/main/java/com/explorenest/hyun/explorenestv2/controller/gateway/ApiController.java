@@ -34,10 +34,12 @@ public class ApiController {
             JsonNode languageNode = jsonNode.path("data").path("language");
             JsonNode recruitmentNode = jsonNode.path("data").path("recruitment");
             JsonNode processNode = jsonNode.path("data").path("projectProcess");
+            JsonNode positionNode = jsonNode.path("data").path("position");
 
             List<String> projectList = new ArrayList<>();
             List<String> studyList = new ArrayList<>();
             List<String> processList = new ArrayList<>();
+            List<String> positionList = new ArrayList<>();
 
             for (JsonNode lang : languageNode) {
                 String title = lang.get("title").asText();
@@ -57,9 +59,16 @@ public class ApiController {
                 processList.add(status);
             }
 
+            for (JsonNode position : positionNode) {
+                String recruit = position.get("recruit").asText();
+
+                positionList.add(recruit);
+            }
+
             languageTitles.put("project", projectList);
             languageTitles.put("study", studyList);
             languageTitles.put("process", processList);
+            languageTitles.put("position", positionList);
 
         } catch (Exception e) {
             System.out.println(e.getMessage());

@@ -64,9 +64,48 @@
   }
 }
 
+#product-recruitment-group-four {
+
+  #product-position-select {
+    width: 400px;
+    text-align: start;
+  }
+
+  #product-communication-input {
+    width: 392px;
+    height: 30px;
+    display: flex;
+    padding-left: 6px;
+    margin-top: 30px;
+  }
+}
+
+#product-recruitment-date-format {
+  top: 0;
+  left: 0;
+  text-align: center;
+  margin-left: 400px;
+}
+
 #product-recruitment-datepicker {
   top: 0;
   right: 0;
   float: right;
   margin-top: 40px;
+}
+
+#product-write-button {
+  width: 100%;
+  height: 50px;
+  margin-top: 50px;
+  background-color: royalblue;
+  font-weight: bold;
+}
+
+#product-cancel-button {
+  width: 100%;
+  height: 50px;
+  margin-top: 30px;
+  background-color: lightcoral;
+  font-weight: bold;
 }

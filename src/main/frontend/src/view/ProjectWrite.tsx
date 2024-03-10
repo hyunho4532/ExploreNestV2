@@ -12,21 +12,27 @@ function ProjectWrite () {
     const [languages, setLanguages] = useState([]);
     const [process, setProcess] = useState([]);
     const [stack, setStack] = useState([]);
+    const [position, setPosition] = useState([]);
 
     const buttonState = useSelector((state: any) => state.buttonStatus.value);
     const buttonDispatch = useDispatch();
 
     const countStatus = []
     const periodStatus = [];
+    const [remainingPeriodStatus, setRemainingPeriodStatus] = useState<Date>();
+
+    const year = remainingPeriodStatus?.getFullYear();
+    const month = remainingPeriodStatus ? remainingPeriodStatus?.getMonth() + 1 : 0;
+    const day = remainingPeriodStatus?.getDate();
+
+    const formattedDate = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
 
     for (let i = 1; i <= 10; i++) {
         countStatus.push(i)
         periodStatus.push(i + "개월")
     }
 
-    const [selectProject, setSelectProject] = useState(languages[0]);
-
-    console.log(selectProject);
+    const [, setSelectProject] = useState(languages[0]);
 
     const setSelectOption = (selectedOption: any) => {
         setSelectProject(selectedOption);
@@ -38,6 +44,7 @@ function ProjectWrite () {
                 setLanguages(response.data.study);
                 setProcess(response.data.process);
                 setStack(response.data.project);
+                setPosition(response.data.position);
 
             })
             .catch(error => {
@@ -98,18 +105,61 @@ function ProjectWrite () {
                 <button
                     id="product-recruitment-button"
                     onClick={() => buttonDispatch(toggleButton())}>
-                    마감 날짜 선택 하기
+                    { buttonState === false ? (
+                        "마감 날짜 열기"
+                    ) : "마감 날짜 닫기"}
                 </button>
 
             </div>
+
+            <p id="product-recruitment-date-format">
+                { formattedDate === "undefined-00-undefined" ? (
+                    <p>
+                        날짜를 선택해 주세요!
+                    </p>
+                ) : (
+                    <div>
+                        { formattedDate }
+                    </div>
+                )}
+            </p>
 
             { buttonState && (
                 <DayPicker
                     id="product-recruitment-datepicker"
                     mode="single"
                     locale={ko}
+                    selected={remainingPeriodStatus}
+                    onSelect={setRemainingPeriodStatus}
                 />
             )}
+
+            <div id="product-recruitment-group-four">
+                <Select
+                    id="product-position-select"
+                    options={position.map((value) => ({ value: value, label :value }))}
+                    onChange={setSelectOption}
+                    placeholder={"Frontend? Backend? .."}
+                />
+
+                <div>
+                    <input 
+                        id="product-communication-input"
+                        placeholder="연락 방법을 입력해주세요. ex) 카카오톡 오픈 채팅방"
+                    />
+                </div>
+
+            </div>
+
+            <button
+                id="product-write-button">
+                    프로젝트 모집 등록
+            </button>
+
+            <button
+                id="product-cancel-button">
+                프로젝트 모집 취소
+            </button>
 
         </div>
     );
