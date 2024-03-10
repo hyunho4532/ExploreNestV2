@@ -157,7 +157,8 @@ function ProjectWrite () {
             </button>
 
             <button
-                id="product-cancel-button">
+                id="product-cancel-button"
+                onClick={() => window.location.href = "/project/main"}>
                 프로젝트 모집 취소
             </button>
 

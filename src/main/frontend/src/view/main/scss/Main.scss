@@ -1,0 +1,26 @@
+#project-main-header {
+  height: 75px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  color: black;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  #project-main-header-logo {
+    margin-top: 40px;
+    margin-left: 480px;
+  }
+
+  #project-main-menu {
+    padding-right: 320px;
+  }
+
+  #project-main-menu > span {
+    padding-right: 40px;
+  }
+}
