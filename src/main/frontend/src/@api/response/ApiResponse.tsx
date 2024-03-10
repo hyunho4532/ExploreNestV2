@@ -6,3 +6,5 @@ interface ApiResponse {
         language: Language[];
     }
 }
+
+export default ApiResponse;
