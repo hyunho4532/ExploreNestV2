@@ -5,6 +5,8 @@ import '../@api/response/ApiResponse'
 import './scss/ProductWrtie.scss'
 import Select from "react-select";
 import {DayPicker} from "react-day-picker";
+import {ko} from "date-fns/locale";
+import buttonVisibility from "../util/visibility/Button.tsx";
 
 function ProjectWrite() {
 
@@ -13,7 +15,7 @@ function ProjectWrite() {
     const [stack, setStack] = useState([]);
 
     const countStatus = []
-    const periodStatus = []
+    const periodStatus = [];
 
     for (let i = 1; i <= 10; i++) {
         countStatus.push(i)
@@ -40,7 +42,6 @@ function ProjectWrite() {
                 console.error(error);
             });
     }, []);
-
 
     return (
         <div id="product-recruitment-main">
@@ -92,7 +93,9 @@ function ProjectWrite() {
                     placeholder={"프로젝트 기술 스택을 선택해 주세요!"}
                 />
 
-                <button id="product-recruitment-button">
+                <button
+                    id="product-recruitment-button"
+                    onClick={buttonVisibility}>
                     마감 기간 선택하기
                 </button>
 
@@ -101,6 +104,7 @@ function ProjectWrite() {
             <DayPicker
                 id="product-recruitment-datepicker"
                 mode="single"
+                locale={ko}
             />
         </div>
     );
