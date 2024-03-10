@@ -1,18 +1,20 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
-import '../@model/Language'
-import '../@api/response/ApiResponse'
-import './scss/ProductWrtie.scss'
-import Select from "react-select";
-import {DayPicker} from "react-day-picker";
-import {ko} from "date-fns/locale";
-import buttonVisibility from "../util/visibility/Button.tsx";
+import Select from 'react-select';
+import { DayPicker } from 'react-day-picker';
+import { ko } from 'date-fns/locale';
+import './scss/ProductWrtie.scss';
+import {useDispatch, useSelector} from "react-redux";
+import {toggleButton} from "../features/buttonVisibility.ts";
 
-function ProjectWrite() {
+function ProjectWrite () {
 
     const [languages, setLanguages] = useState([]);
     const [process, setProcess] = useState([]);
     const [stack, setStack] = useState([]);
+
+    const buttonState = useSelector((state: any) => state.buttonStatus.value);
+    const buttonDispatch = useDispatch();
 
     const countStatus = []
     const periodStatus = [];
@@ -95,17 +97,20 @@ function ProjectWrite() {
 
                 <button
                     id="product-recruitment-button"
-                    onClick={buttonVisibility}>
-                    마감 기간 선택하기
+                    onClick={() => buttonDispatch(toggleButton())}>
+                    마감 날짜 선택 하기
                 </button>
 
             </div>
 
-            <DayPicker
-                id="product-recruitment-datepicker"
-                mode="single"
-                locale={ko}
-            />
+            { buttonState && (
+                <DayPicker
+                    id="product-recruitment-datepicker"
+                    mode="single"
+                    locale={ko}
+                />
+            )}
+
         </div>
     );
 }
