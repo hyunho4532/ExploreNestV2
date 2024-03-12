@@ -17,10 +17,14 @@
   }
 
   #project-main-menu {
-    padding-right: 320px;
+    padding-left: 220px;
+
+    span {
+      padding-left: 40px;
+    }
   }
 
-  #project-main-menu > span {
-    padding-right: 40px;
+  #google-login-wrapper {
+    padding-right: 440px;
   }
 }

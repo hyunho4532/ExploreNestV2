@@ -7,11 +7,11 @@ import store from "./store.ts";
 import {GoogleOAuthProvider} from "@react-oauth/google";
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-    <GoogleOAuthProvider clientId="699075609532-t5vblk4r6usall6vpgaim10di4cvdle1.apps.googleusercontent.com">
-        <Provider store={store}>
+    <Provider store={store}>
+        <GoogleOAuthProvider clientId="695757693710-46iodg6db6levqark3aamuonfba016jt.apps.googleusercontent.com">
             <React.StrictMode>
                 <App />
             </React.StrictMode>
-        </Provider>
-    </GoogleOAuthProvider>
+        </GoogleOAuthProvider>
+    </Provider>
 )
