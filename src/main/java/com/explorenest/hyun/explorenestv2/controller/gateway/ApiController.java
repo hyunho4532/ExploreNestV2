@@ -1,12 +1,11 @@
 package com.explorenest.hyun.explorenestv2.controller.gateway;
 
+import com.explorenest.hyun.explorenestv2.model.GoogleLoginData;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
@@ -77,5 +76,16 @@ public class ApiController {
         System.out.println(languageTitles);
 
         return languageTitles;
+    }
+
+    @PostMapping("/handleGoogleLogin")
+    public String handleGoogleLogin(@RequestBody GoogleLoginData googleLoginData) {
+
+        String email = googleLoginData.getEmail();
+
+        System.out.println(email);
+
+
+        return "데이터 성공적으로 받았습니다!";
     }
 }

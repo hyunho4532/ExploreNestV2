@@ -1,5 +1,7 @@
 import './scss/Main.scss';
 import {GoogleLogin} from "@react-oauth/google";
+import jwtDecode from "jwt-decode";
+import SendDataToServer from "../../@api/response/SendDataToServerResponse.tsx";
 
 function Main() {
 
@@ -14,7 +16,10 @@ function Main() {
             <div id="google-login-wrapper">
                 <GoogleLogin
                     onSuccess={(credentialResponse) => {
-                        console.log(credentialResponse);
+                        if (credentialResponse.credential != null) {
+                            const credentialResponseDecoded = jwtDecode(credentialResponse.credential);
+                            SendDataToServer(credentialResponseDecoded);
+                        }
                     }}
                     onError={() => {
                         console.log("Login Failed")
