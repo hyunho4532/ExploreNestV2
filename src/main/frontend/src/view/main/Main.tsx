@@ -1,7 +1,7 @@
 import './scss/Main.scss';
 import {GoogleLogin} from "@react-oauth/google";
 import jwtDecode from "jwt-decode";
-import SendDataToServer from "../../@api/response/SendDataToServerResponse.tsx";
+import sendDataToServerResponse from "../../@api/response/SendDataToServerResponse.tsx";
 
 function Main() {
 
@@ -18,7 +18,8 @@ function Main() {
                     onSuccess={(credentialResponse) => {
                         if (credentialResponse.credential != null) {
                             const credentialResponseDecoded = jwtDecode(credentialResponse.credential);
-                            SendDataToServer(credentialResponseDecoded);
+                            sendDataToServerResponse(credentialResponseDecoded);
+                            console.log(credentialResponseDecoded);
                         }
                     }}
                     onError={() => {
